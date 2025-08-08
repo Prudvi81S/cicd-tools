@@ -61,14 +61,14 @@ module "records" {
       ]
       allow_overwrite = true
     },
-    {
-      name = "jenkins-agent"
-      type = "A"
-      ttl  = 1
-      records = [
-        module.jenkins_agent.private_ip
-      ]
-      allow_overwrite = true
-    }
+    # {
+    #   name = "jenkins-agent"
+    #   type = "A"
+    #   ttl  = 1
+    #   records = [
+    #     module.jenkins_agent.private_ip
+    #   ]
+    #   allow_overwrite = true
+    # }
   ]
 }
