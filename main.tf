@@ -17,8 +17,11 @@ module "jenkins" {
     volume_size           = 50    # Size of the root volume in GB
     volume_type           = "gp3" # General Purpose SSD (you can change it if needed)
     delete_on_termination = true  # Automatically delete the volume when the instance is terminated
+    encrypted = true
+    tags = {
+      Name = "root_block_device"
+    }
   }
-
 }
 
 module "jenkins_agent" {
@@ -35,12 +38,15 @@ module "jenkins_agent" {
     Name = "jenkins-agent"
   }
 
-  root_block_device {
+   root_block_device {
     volume_size           = 50    # Size of the root volume in GB
     volume_type           = "gp3" # General Purpose SSD (you can change it if needed)
     delete_on_termination = true  # Automatically delete the volume when the instance is terminated
+    encrypted = true
+    tags = {
+      Name = "root_block_device"
+    }
   }
-
 }
 
 module "records" {
